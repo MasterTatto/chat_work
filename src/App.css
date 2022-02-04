@@ -1,38 +1,107 @@
 .App {
-  text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 100px;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.owner_block_message {
+    display: flex;
+    flex-direction: column;
+    max-width: 500px;
+    width: 100%;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.wrapper_block_message {
+    /*border: 1px solid;*/
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.block_message {
+    border: 1px solid;
+    border-radius: 25px;
+    padding: 10px;
+    max-width: 400px;
+    margin-top: 30px;
 }
 
-.App-link {
-  color: #61dafb;
+.block_message:first-child {
+    margin-top: 0;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.block_message_user {
+    background: #9edafa;
+}
+
+.block_message_bot {
+    background: #fdccf3;
+    margin-left: 100px
+}
+
+.block_message .block_message_author {
+    padding: 0px 0 5px 0;
+    margin: 0;
+    font-size: 24px;
+    color: #424242;
+    text-transform: capitalize;
+}
+
+.block_message .block_message_message {
+    padding: 0;
+    margin: 0;
+    font-size: 18px;
+    color: #4c4c4c;
+}
+
+.form {
+    margin: 100px 0;
+}
+
+.form textarea {
+    display: block;
+    box-sizing: border-box;
+    width: 80%;
+    resize: none;
+    overflow-y: hidden;
+    height: 100px;
+    /* optional CSS */
+    border: 1px solid;
+    outline: 0;
+    background: white;
+    border-radius: 20px;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4em;
+    color: #343434;
+}
+
+.form button {
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    cursor: pointer;
+    display: flex;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    margin-top: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif;
+
+
+    border-color: purple;
+    border-radius: 0;
+    color: purple;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    transition: 1s all;
+}
+
+.form button:hover {
+    color: #4af659;
+    border-color: #4af659;
 }
