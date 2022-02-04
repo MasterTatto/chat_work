@@ -1,4 +1,3 @@
-import {v4 as uuidv4} from 'uuid'
 import './App.css';
 import {useEffect, useState} from "react";
 
@@ -10,13 +9,13 @@ function App() {
         if (messageList.length === 0) return
         if (messageList.at(-1).author === 'bot') return
         setTimeout(() => {
-            const newMessage = {id: uuidv4(), author: 'bot', message: 'i am BOOOT'}
+            const newMessage = {author: 'bot', message: 'i am BOOOT'}
             setMessageList([...messageList, newMessage])
         }, 1000)
     }, [messageList])
 
     const sendMessage = (value) => {
-        const newMessage = {id: uuidv4(), author: 'user', message: value}
+        const newMessage = {author: 'user', message: value}
         setMessageList([...messageList, newMessage])
     }
 
