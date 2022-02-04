@@ -1,8 +1,15 @@
+.main_app_container {
+    display: flex;
+    min-height: 100vh;
+}
+
 .App {
     display: flex;
     align-items: center;
     justify-content: center;
     padding-top: 100px;
+    width: 90%;
+    background: #eaeaea
 }
 
 .owner_block_message {
@@ -54,50 +61,27 @@
 
 .form {
     margin: 100px 0;
+    display: flex;
+    flex-direction: column;
 }
 
 .form textarea {
-    display: block;
-    box-sizing: border-box;
-    width: 80%;
-    resize: none;
-    overflow-y: hidden;
-    height: 100px;
-    /* optional CSS */
-    border: 1px solid;
-    outline: 0;
-    background: white;
     border-radius: 20px;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 1.4em;
+    padding: 20px 0;
+    font-weight: 600;
+    font-size: 1.1em;
     color: #343434;
 }
 
 .form button {
-    box-sizing: border-box;
-    appearance: none;
-    background-color: transparent;
-    cursor: pointer;
-    display: flex;
-    align-self: center;
-    font-size: 1rem;
-    font-weight: 700;
-    line-height: 1;
+
     margin-top: 20px;
     padding: 1.2em 2.8em;
     text-decoration: none;
     text-align: center;
     text-transform: uppercase;
     font-family: 'Montserrat', sans-serif;
-
-
-    border-color: purple;
-    border-radius: 0;
-    color: purple;
-    position: relative;
-    overflow: hidden;
-    z-index: 1;
+    font-weight: 900;
     transition: 1s all;
 }
 

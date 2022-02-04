@@ -1,14 +1,22 @@
 import {v4 as uuidv4} from 'uuid'
 import './App.css';
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
+import {Button, TextField} from "@mui/material";
+import Chats from "./components/chats";
 
 function App() {
     const [value, setValue] = useState('')
     const [messageList, setMessageList] = useState([])
+    const inputRef = useRef();
 
     useEffect(() => {
+        setTimeout(() => {
+            inputRef.current.focus();
+        }, 0);
+
         if (messageList.length === 0) return
         if (messageList.at(-1).author === 'bot') return
+
         setTimeout(() => {
             const newMessage = {id: uuidv4(), author: 'bot', message: 'i am BOOOT'}
             setMessageList([...messageList, newMessage])
@@ -29,24 +37,37 @@ function App() {
     )
 
     return (
-        <div className="App">
-            <div className={'owner_block_message'}>
-                <div className={'wrapper_block_message'}>
-                    <MessagesItems/>
-                </div>
-                <form onSubmit={(e) => {
-                    e.preventDefault()
-                    sendMessage(value)
-                }} className={'form'}>
-                    <textarea rows="5" cols="33" placeholder='Write message'
-                              onChange={(e) => setValue(e.target.value)}/>
-                    <button type='submit'>
-                        Send message
-                    </button>
-                </form>
+        <div className={'main_app_container'}>
+            <Chats/>
+            <div className="App">
+                <div className={'owner_block_message'}>
+                    <div className={'wrapper_block_message'}>
+                        <MessagesItems/>
+                    </div>
+                    <form onSubmit={(e) => {
+                        e.preventDefault()
+                        sendMessage(value)
+                    }} className={'form'}>
 
+                        <TextField
+                            id="outlined-multiline-flexible"
+                            label="Write message"
+                            multiline
+                            maxRows={4}
+                            value={value}
+                            onChange={(e) => {
+                                setValue(e.target.value)
+                                e.preventDefault()
+                            }}
+                            inputRef={inputRef}
+                        />
+                        <Button variant="outlined" type={'submit'}>Send message</Button>
+                    </form>
+
+                </div>
             </div>
         </div>
+
     );
 }
 
