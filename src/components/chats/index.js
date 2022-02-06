@@ -3,8 +3,9 @@ import s from './style.module.css'
 import {v4 as uuidv4} from 'uuid'
 import {List, ListItem} from "@mui/material";
 
-import {NavLink} from "react-router-dom";
+import {NavLink, Route, Routes} from "react-router-dom";
 import ChatMessage from "../chatMessages";
+
 
 const Chats = () => {
     const [chats, setChats] = useState([
@@ -16,8 +17,8 @@ const Chats = () => {
     const [getID, setGetID] = useState()
 
     const ChatItems = () => chats.map((el) =>
-        <NavLink to={`/chats/${el.id}`}>
-            <ListItem alignItems="flex-start" key={el.id} className={`${s.chat_item} ${getID === el.id && s.active}`}
+        <NavLink to={`/chats/${el.id}`} key={el.id}>
+            <ListItem alignItems="flex-start" className={`${s.chat_item} ${getID === el.id && s.active}`}
                       onClick={() => setGetID(el.id)}>
 
                 <h2>{el.name}</h2>
@@ -27,13 +28,13 @@ const Chats = () => {
     )
 
     return (
+
         <div className={s.chats}>
             <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
-
                 <ChatItems/>
-
             </List>
         </div>
+
     )
 };
 
