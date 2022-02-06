@@ -3,13 +3,21 @@
     min-height: 100vh;
 }
 
+.route_chats{
+    display: flex;
+}
+
 .App {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 100px;
     width: 90%;
-    background: #eaeaea
+    background: #eaeaea;
+    min-height: 100vh;
+}
+
+.chats {
+    width: 10%;
 }
 
 .owner_block_message {
@@ -19,8 +27,10 @@
     width: 100%;
 }
 
-.wrapper_block_message {
-    /*border: 1px solid;*/
+.owner_chats {
+    display: flex;
+    width: 100%;
+    min-height: 100vh
 }
 
 .block_message {

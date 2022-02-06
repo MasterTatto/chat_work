@@ -1,9 +1,24 @@
+.owner_chats {
+    display: flex;
+    width: 100%;
+    min-height: 100vh
+}
+
+.messages {
+    width: 100%;
+}
+
 .chats {
     border-right: 2px solid #7d7c7c;
     width: 10%;
-    padding: 20px;
+    min-height: 100vh;
 }
 
 .chat_item {
     color: #333;
+    cursor: pointer;
+}
+
+.active {
+    color: #2c8af1;
 }
