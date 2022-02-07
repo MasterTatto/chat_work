@@ -4,6 +4,7 @@ import {Route, Routes} from "react-router-dom";
 import Profile from "../components/profile";
 import ChatMessageContainer from "../components/chatMessages/containerChatMessages";
 import ContainerChat from "../components/chats/containerChat";
+import RandomFox from "../components/randomFox";
 
 
 const Routers = () => {
@@ -20,6 +21,7 @@ const Routers = () => {
             }/>
 
             <Route path={'/profile'} element={<Profile/>}/>
+            <Route path={'/random-fox'} element={<RandomFox/>}/>
         </Routes>
     );
 };

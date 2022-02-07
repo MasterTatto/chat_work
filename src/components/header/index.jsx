@@ -17,7 +17,11 @@ const Header = () => {
                         Chats
                     </Typography>
                 </NavLink>
-
+                <NavLink to={'/random-fox'} className={s.link}>
+                    <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                        Random fox
+                    </Typography>
+                </NavLink>
             </Toolbar>
         </AppBar>
     </Box>);
