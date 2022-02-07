@@ -10,11 +10,11 @@ const RandomFox = () => {
     const img = useSelector((state) => state.randomFoxReducer)
     console.log(img)
     return (
-        <div>
-            <div className={s.img} style={{backgroundImage: `url(${img.img})`}}/>
-            <Button variant="outlined" onClick={getRandom}>
+        <div className={s.owner_random_fox}>
+            <Button variant="outlined" onClick={getRandom} className={s.btn}>
                 check
             </Button>
+            <div className={s.img} style={{backgroundImage: `url(${img.img})`}}/>
         </div>
     );
 };

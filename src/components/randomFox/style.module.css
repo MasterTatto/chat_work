@@ -6,3 +6,18 @@
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+.owner_random_fox {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    align-items: center;
+}
+
+.btn {
+    margin: 20px 0;
+    max-width: 200px;
+    width: 100%
+}
