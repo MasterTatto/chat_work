@@ -1,10 +1,14 @@
 import {v4 as uuidv4} from "uuid";
 
+export const chatID1 = uuidv4()
+export const chatID2 = uuidv4()
+export const chatID3 = uuidv4()
+export const chatID4 = uuidv4()
 const initialState = [
-    {id: uuidv4(), name: 'Bob'},
-    {id: uuidv4(), name: 'Alex'},
-    {id: uuidv4(), name: 'Andrey'},
-    {id: uuidv4(), name: 'Oleg'},
+    {id: chatID1, name: 'Bob'},
+    {id: chatID2, name: 'Alex'},
+    {id: chatID3, name: 'Andrey'},
+    {id: chatID4, name: 'Oleg'},
 ]
 
 
@@ -12,7 +16,7 @@ export const chats = (state = initialState, action) => {
     switch (action.type) {
 
         case 'ADDED_CHAT': {
-            const newChat = {id: uuidv4(), name: action.name}
+            const newChat = {id: action.id, name: action.name}
             return [...state, newChat]
         }
 
@@ -26,7 +30,7 @@ export const chats = (state = initialState, action) => {
 
 export const addedChatAC = (name) => {
     return {
-        type: 'ADDED_CHAT', name
+        type: 'ADDED_CHAT', name, id: uuidv4()
     }
 }
 

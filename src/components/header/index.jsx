@@ -1,5 +1,5 @@
 import React from 'react';
-import {AppBar, Box, IconButton, Toolbar, Typography} from "@mui/material";
+import {AppBar, Box, Toolbar, Typography} from "@mui/material";
 import {NavLink} from "react-router-dom";
 import s from './style.module.css'
 
@@ -12,7 +12,7 @@ const Header = () => {
                         Profile
                     </Typography>
                 </NavLink>
-                <NavLink to={'/chats/id'} className={s.link}>
+                <NavLink to={'/chats'} className={s.link}>
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         Chats
                     </Typography>

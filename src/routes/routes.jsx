@@ -1,20 +1,21 @@
 import React from 'react';
 import {Route, Routes} from "react-router-dom";
-import Home from "../components/home";
-import Chats from "../components/chats";
+
 import Profile from "../components/profile";
-import ChatMessage from "../components/chatMessages";
+import ChatMessageContainer from "../components/chatMessages/containerChatMessages";
+import ContainerChat from "../components/chats/containerChat";
 
 
 const Routers = () => {
     return (
         <Routes>
-            <Route path={'/'} element={<Home/>}/>
+            <Route path={'/'} element={<Profile/>}/>
+            <Route path={'/chats'} element={<ContainerChat/>}/>
 
             <Route path={'/chats/:id'} element={
                 <div className={'route_chats'}>
-                    <Chats/>
-                    <ChatMessage/>
+                    <ContainerChat/>
+                    <ChatMessageContainer/>
                 </div>
             }/>
 

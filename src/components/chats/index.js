@@ -2,26 +2,15 @@ import React, {useState} from 'react';
 import s from './style.module.css'
 import {Button, List, ListItem, TextField} from "@mui/material";
 import {NavLink} from "react-router-dom";
-import {useDispatch, useSelector} from "react-redux";
-import {addedChatAC, removeChatAC} from "./chatsReducer";
 import DeleteIcon from '@mui/icons-material/Delete';
+import {useSelector} from "react-redux";
 
-const Chats = () => {
-    const chatSelector = useSelector((state) => state.chats)
+const Chats = ({chatName,addedChat, removeChat}) => {
     const [getID, setGetID] = useState()
     const [value, setValue] = useState('')
-    const dispatch = useDispatch()
 
-    const addedChat = (value) => {
-        dispatch(addedChatAC(value))
-    }
-
-    const removeChat = (id) => {
-        dispatch(removeChatAC(id))
-    }
-
-    const ChatItems = () => chatSelector?.map((el) => <div className={s.link}>
-            <NavLink to={`/chats/${el.id}`} key={el.id}>
+    const ChatItems = () => chatName?.map((el) => <div className={s.link} key={el.id}>
+            <NavLink to={`/chats/${el.id}`}>
                 <ListItem alignItems="flex-start" className={`${s.chat_item} ${getID === el.id && s.active}`}
                           onClick={() => setGetID(el.id)}>
 
@@ -29,7 +18,9 @@ const Chats = () => {
 
                 </ListItem>
             </NavLink>
-            <DeleteIcon className={s.delete} onClick={() => removeChat(el.id)}/>
+            <NavLink to={'/chats'}>
+                <DeleteIcon className={s.delete} onClick={() => removeChat(el.id)}/>
+            </NavLink>
         </div>
     )
 
