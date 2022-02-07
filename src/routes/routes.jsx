@@ -10,13 +10,14 @@ const Routers = () => {
     return (
         <Routes>
             <Route path={'/'} element={<Home/>}/>
-            <Route path={'/chats'} element={<Chats/>}/>
+
             <Route path={'/chats/:id'} element={
                 <div className={'route_chats'}>
                     <Chats/>
                     <ChatMessage/>
                 </div>
             }/>
+
             <Route path={'/profile'} element={<Profile/>}/>
         </Routes>
     );

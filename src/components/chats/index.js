@@ -1,40 +1,53 @@
 import React, {useState} from 'react';
 import s from './style.module.css'
-import {v4 as uuidv4} from 'uuid'
-import {List, ListItem} from "@mui/material";
-
-import {NavLink, Route, Routes} from "react-router-dom";
-import ChatMessage from "../chatMessages";
-
+import {Button, List, ListItem, TextField} from "@mui/material";
+import {NavLink} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
+import {addedChatAC, removeChatAC} from "./chatsReducer";
+import DeleteIcon from '@mui/icons-material/Delete';
 
 const Chats = () => {
-    const [chats, setChats] = useState([
-        {id: uuidv4(), name: 'Bob'},
-        {id: uuidv4(), name: 'Alex'},
-        {id: uuidv4(), name: 'Andrey'},
-        {id: uuidv4(), name: 'Oleg'},
-    ])
+    const chatSelector = useSelector((state) => state.chats)
     const [getID, setGetID] = useState()
+    const [value, setValue] = useState('')
+    const dispatch = useDispatch()
 
-    const ChatItems = () => chats.map((el) =>
-        <NavLink to={`/chats/${el.id}`} key={el.id}>
-            <ListItem alignItems="flex-start" className={`${s.chat_item} ${getID === el.id && s.active}`}
-                      onClick={() => setGetID(el.id)}>
+    const addedChat = (value) => {
+        dispatch(addedChatAC(value))
+    }
 
-                <h2>{el.name}</h2>
+    const removeChat = (id) => {
+        dispatch(removeChatAC(id))
+    }
 
-            </ListItem>
-        </NavLink>
+    const ChatItems = () => chatSelector?.map((el) => <div className={s.link}>
+            <NavLink to={`/chats/${el.id}`} key={el.id}>
+                <ListItem alignItems="flex-start" className={`${s.chat_item} ${getID === el.id && s.active}`}
+                          onClick={() => setGetID(el.id)}>
+
+                    <h2>{el.name}</h2>
+
+                </ListItem>
+            </NavLink>
+            <DeleteIcon className={s.delete} onClick={() => removeChat(el.id)}/>
+        </div>
     )
 
     return (
+        <div className={s.owner_chats}>
+            <div className={s.action_block}>
+                <TextField className={s.input} value={value} onChange={(e) => setValue(e.currentTarget.value)}
+                           id="outlined-basic"
+                           label="Добавить чат" variant="outlined"/>
 
-        <div className={s.chats}>
-            <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
-                <ChatItems/>
-            </List>
+                <Button className={s.btn} variant="outlined" onClick={() => addedChat(value)}>Добавить чат</Button>
+            </div>
+            <div className={s.chats}>
+                <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
+                    <ChatItems/>
+                </List>
+            </div>
         </div>
-
     )
 };
 

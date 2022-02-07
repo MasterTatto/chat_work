@@ -12,7 +12,7 @@ const Header = () => {
                         Profile
                     </Typography>
                 </NavLink>
-                <NavLink to={'/chats'} className={s.link}>
+                <NavLink to={'/chats/id'} className={s.link}>
                     <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
                         Chats
                     </Typography>
