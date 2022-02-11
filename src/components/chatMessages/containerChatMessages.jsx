@@ -4,10 +4,7 @@ import {addChatMessageTC, answerBot} from "./chatMessagesReducer";
 
 
 const mapStateToProps = (state) => {
-    return {
-        messageList: state.chatMessage,
-        chatName: state.chats
-    }
+
 }
 
 const mapDispatchToProps = (dispatch) => {

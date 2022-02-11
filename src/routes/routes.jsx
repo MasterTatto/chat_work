@@ -7,7 +7,6 @@ import ContainerChat from "../components/chats/containerChat";
 import RandomFox from "../components/randomFox";
 import Auth from "../components/auth";
 
-
 const Routers = () => {
     return (
         <Routes>
